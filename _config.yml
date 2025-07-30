@@ -18,15 +18,15 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: EvalLM
+title: 🏹 Cupid
 theme: minima
-description: "Interactive Evaluation of Large Language Model Prompts on User-Defined Criteria"
+description: "Evaluating Personalized and Contextualized Alignment of LLMs from Interactions"
 
 syscolor: "#555555"
 sysfont: Inter
-video: https://www.youtube-nocookie.com/embed/7hvTnhiCO7Y?si=6I9aqVnatM8VoaJd
-paper: https://arxiv.org/abs/2309.13633
-code: https://github.com/kixlab/evallm
+paper: https://arxiv.org/abs/XXXX.YYYYY
+code: https://github.com/kixlab/CUPID
+dataset: https://huggingface.co/datasets/kixlab/CUPID
 
 plugins:
   - jekyll-feed

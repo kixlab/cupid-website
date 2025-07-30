@@ -2,86 +2,57 @@
 layout: default
 ---
 
-<span class="sys-name">EvalLM</span> ⚗️ is an interactive system that aids prompt designers in iterating on **prompts** by evaluating and comparing generated outputs on user-defined **criteria**. With the aid of an **LLM-based evaluation assistant**, the user can iteratively evolve **criteria+prompts** to distinguish more specific qualities in outputs and then improve the quality of outputs on these aspects.
-
-<br/>
+<span class="sys-name">Cupid</span> 🏹 is a benchmark for evaluating the capability of Large Language Models (LLMs) to infer and apply **personalized, contextual preferences** from multi-turn user interactions. Unlike existing approaches that assume static global preferences, <span class="sys-name">Cupid</span> tests models' ability to understand **dynamic, context-dependent** user preferences revealed through users' conversational feedback.
 
 {: .sys-img}
-![Animation of the overall workflow of EvalLM where users sample inputs from a dataset, generate outputs from each input using two different prompts, and then comparatively evaluate these outputs on user-defined criteria.](/assets/img/animation.gif)
+![Pipeline diagram showing CUPID's synthesis process to generate diverse interaction sessions](/assets/img/pipeline.png)
 
 ------
 
-## Interface
-
-The main screen of the interface consists of three panels.
-
-{: .sys-img}
-![Main screen of EvalLM shows three panels. The generation panel shows text boxes for the prompt and task instruction, and buttons for input sampling. The evaluation panel shows text boxes for the criteria, buttons for evaluating, and stacked bar charts for the evaluation results.](/assets/img/interface.png)
-
-<b>Generation Panel</b>: To generate outputs, the user defines their overall **task instruction** (A), two **prompts** they want to compare (B), and then **samples inputs** from a dataset (C) which will be used to test the prompts.
-
-**Evaluation Panel**: To evaluate outputs, the user defines a set of evaluation **<a href="#criteria" target="_self">criteria</a>** (D). Then, after evaluating, they can verify the overall *evaluation* performance of each prompt (E) or, if they created a validation set, *validate* how automatic evaluations align with ground-truth evaluations (F).
-
-**Data Panel**: This panel shows **<a href="#datarow" target="_self">data rows</a>** containing inputs, outputs, and evaluation results. 
-
-<br/>
-
-### <span id="criteria">Criteria</span>
+## Dataset
 
 {: .text-left}
-<span class="sys-name">EvalLM</span> allows users to evaluate outputs on their own criteria specific to their application and/or context. 
-<br/><br/>
-To define a criteria, the user simply provides the criteria with a **name** (A) and **description** (B) in natural language.
-<br/><br/>
-To assist users in creating more effective and helpful criteria, the system automatically **reviews** their criteria (C) and provides **suggestions** (D) on how the criteria can be *refined*, *merged* and *split*.
+<div markdown="1">
+<span class="sys-name">Cupid</span> contains **756 human-curated interaction session histories** between simulated users and LLM-based AI assistants, available on **[<img src="/assets/img/hf-logo.svg" height="20px" width="20px"/> HuggingFace](https://huggingface.co/datasets/kixlab/CUPID)**.
+
+### Key Features
+
+- **Contextual Preferences**: Tests models' ability to infer preferences that change based on context
+- **Multi-turn Interactions**: Preferences are revealed through implicit and multi-turn feedback rather than explicit statements
+- **Three Instance Types**: Demonstrate different ways in which a user's preference may change over time and across contexts
+- **Diverse Context Factors**: Encompasess multi-faceted contextual factors that influence preferences, including personal relationships, work experiences, locations, organizations, etc.
+
+Our **[<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> Github Repository](https://github.com/kixlab/cupid)** contains code for the synthesis pipeline, which can be used to generate additional training/evaluation data.
+</div>
 
 {: .img-right}
-![Criteria are represented as a set of text boxes that contain the name and description of the criteria. Suggested revisions are shown below the criteria.](/assets/img/criteria.png)
+![Example interaction session from CUPID](/assets/img/example.png)
 
-<br/>
+---
 
-### <span id="datarow">Data Row</span>
+## Evaluation Tasks
 
-{: .sys-img}
-![Data Rows in the interface display inputs, output pairs, and evaluation results. Clicking on evaluation results opens a panel that shows the explanation for that evaluation underneath the row.](/assets/img/datarow.png)
+<span class="sys-name">Cupid</span> can be used to assess models on two tasks:
 
-For each sampled **input** (A), the interface presents the **outputs** generated from each prompt side-by-side (B) and the **evaluation results** for each criteria next to the outputs (C). For each criteria, the evaluation results show which prompt produced the output that better satisfied that criteria.
+**1. Preference Inference**: Given prior interactions, infer the user's contextual preference for the current request.
+  - **Metric**: LLM-based preference matching between inferred and ground-truth preferences to then calculate F1, Precision, and Recall.
+  - **Model**: We provide **[<img src="/assets/img/hf-logo.svg" height="20px" width="20px"/> kixlab/prefmatcher-7b](https://huggingface.co/kixlab/prefmatcher-7b)**, a fine-tuned metric for cost-efficient and reliable preference matching.
 
-If the user wants to see more details, they can click on one of these evaluations to see the assistant's **explanation** (D). To help the user match the explanation and outputs, the system also **highlights** spans from the outputs that were considered to be important when evaluating the criteria (E).
+**2. Response Generation**: Generate responses that satisfy the user's contextual preferences.
+  - **Metric**: LLM-based judge on response-preference alignment (1-10 scale)
+  - **Recommendation**: Benchmark on **preference inference** as it strongly correlates with response generation performance.
 
-If the user selected to evaluate outputs on multiple trials, they can see the evaluations for **other trials** through the carousel (F). 
-
-------
-
-## Video Demo
-
-See <span class="sys-name">EvalLM</span> in action in this Video Demo.
-
-{% if site.video %}
-<div class="video-wrapper">
-  <iframe src="{{site.video}}&color=white&rel=0&modestlogo=1" id="yt-video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-{% endif %}
+Evaluation scripts are available in our **[<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> Github Repository](https://github.com/kixlab/cupid)**.
 
 ------
 
 ## Bibtex
 <pre>
-@inproceedings{10.1145/3613904.3642216,
-author = {Kim, Tae Soo and Lee, Yoonjoo and Shin, Jamin and Kim, Young-Ho and Kim, Juho},
-title = {EvalLM: Interactive Evaluation of Large Language Model Prompts on User-Defined Criteria},
-year = {2024},
-isbn = {9798400703300},
-publisher = {Association for Computing Machinery},
-address = {New York, NY, USA},
-url = {https://doi.org/10.1145/3613904.3642216},
-doi = {10.1145/3613904.3642216},
-booktitle = {Proceedings of the CHI Conference on Human Factors in Computing Systems},
-articleno = {306},
-numpages = {21},
-keywords = {Evaluation, Human-AI Interaction, Large Language Models, Natural Language Generation},
-location = {<conf-loc>, <city>Honolulu</city>, <state>HI</state>, <country>USA</country>, </conf-loc>},
-series = {CHI '24}
+@article{kim2025cupid,
+  title     = {CUPID: Evaluating Personalized and Contextualized Alignment of LLMs from Interactions},
+  author    = {Kim, Tae Soo and Lee, Yoonjoo and Park, Yoonah and Kim, Jiho and Kim, Young-Ho and Kim, Juho},
+  journal   = {arXiv preprint arXiv:XXXX.YYYYY},
+  year      = {2025},
 }
 </pre>
 
@@ -89,7 +60,9 @@ series = {CHI '24}
 
 {: .logos}
 [![Logo of KIXLAB](/assets/img/kixlab_logo.png)](https://kixlab.org)
-[![Logo of KAIST](/assets/img/kaist_logo.png)](https://kaist.ac.kr)
+[![Logo of KAIST](/assets/img/kaist_logo.png)](https://kaist.ac.kr/en)
+[![Logo of SNU](/assets/img/snu_logo.png)](https://en.snu.ac.kr)
+[![Logo of Calvin University](/assets/img/calvin_logo.png)](https://calvin.edu)
 [![Logo of NAVER](/assets/img/naver_logo.png)](https://www.facebook.com/NAVERAILAB)
 
 {: .center .acknowledgement}

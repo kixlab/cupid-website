@@ -53,9 +53,15 @@ p {
   margin-bottom: 20px;
   color: #555;
   font-weight: 300;
+  vertical-align: middle;
   & > b {
     font-weight: 500;
   }
+}
+
+img, svg {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .video-wrapper {
@@ -156,7 +162,7 @@ iframe {
 
 pre {
   display: block;
-  font-size: 14px;
+  font-size: 12px;
   color: #333;
   word-break: break-all;
   word-wrap: break-word;
@@ -195,7 +201,7 @@ pre {
   color: #fff;
   fill: #fff;
   font-size: 16px;
-  width: 80px;
+  width: 100px;
   cursor: pointer;
 
   &:visited {
@@ -209,6 +215,12 @@ pre {
     color: #fff;
     text-decoration: none;
   }
+}
+
+ul {
+  font-size: 18px;
+  color: #555;
+  font-weight: 300;
 }
 
 .button-disabled {
