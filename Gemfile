@@ -38,3 +38,4 @@ gem "webrick", "~> 1.8"
 # Required for Ruby 3.4+ compatibility
 gem "csv", "~> 3.0"
 gem "logger", "~> 1.0"
+gem "base64", "~> 0.1"
