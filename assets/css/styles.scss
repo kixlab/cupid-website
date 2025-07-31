@@ -4,7 +4,7 @@
 @import "{{ site.theme }}";
 
 html {
-  scroll-behavior:smooth
+  scroll-behavior: smooth;
 }
 
 body {
@@ -279,6 +279,30 @@ strong {
   margin-bottom: 0px;
 }
 
+.conference-acceptance {
+  text-align: center;
+  margin: 20px auto 0px auto;
+  max-width: 400px;
+
+  h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #666;
+    font-weight: 300;
+    line-height: 1.4;
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
 @media (max-width: 600px) {
   h1 {
     font-size: 36px;
@@ -341,6 +365,15 @@ strong {
 
   .credits {
     font-size: 10px;
+  }
+
+  .conference-acceptance {
+    margin: 16px auto;
+    max-width: 85%;
+
+    h4 {
+      font-size: 14px;
+    }
   }
 
   .footer {

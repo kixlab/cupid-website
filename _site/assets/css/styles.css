@@ -917,6 +917,27 @@ strong {
   margin-bottom: 0px;
 }
 
+.conference-acceptance {
+  text-align: center;
+  margin: 20px auto 0px auto;
+  max-width: 400px;
+}
+.conference-acceptance h4 {
+  margin: 0;
+  font-size: 18px;
+  color: #666;
+  font-weight: 300;
+  line-height: 1.4;
+}
+.conference-acceptance h4 a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.conference-acceptance h4 a:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 600px) {
   h1 {
     font-size: 36px;
@@ -966,6 +987,13 @@ strong {
   }
   .credits {
     font-size: 10px;
+  }
+  .conference-acceptance {
+    margin: 16px auto;
+    max-width: 85%;
+  }
+  .conference-acceptance h4 {
+    font-size: 14px;
   }
   .footer > div {
     max-width: calc(100vw - 30px);

@@ -52,7 +52,7 @@ Evaluation scripts are available in our **[<svg xmlns="http://www.w3.org/2000/sv
   title     = {CUPID: Evaluating Personalized and Contextualized Alignment of LLMs from Interactions},
   author    = {Kim, Tae Soo and Lee, Yoonjoo and Park, Yoonah and Kim, Jiho and Kim, Young-Ho and Kim, Juho},
   journal   = {arXiv preprint arXiv:XXXX.YYYYY},
-  year      = {2025},
+  year      = {2025}
 }
 </pre>
 

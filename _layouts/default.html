@@ -76,6 +76,13 @@
           </a>
         {% endif %}
       </div>
+      {% if site.conference %}
+        <div class="conference-acceptance">
+          <h4>
+            Accepted to <a href="{{site.conference_link}}" target="_blank">{{site.conference}}</a>
+          </h4>
+        </div>
+      {% endif %}
     </div>
     <div class="wrapper">
       <hr/>

@@ -22,6 +22,8 @@ title: 🏹 Cupid
 theme: minima
 description: "Evaluating Personalized and Contextualized Alignment of LLMs from Interactions"
 
+conference: "COLM 2025"
+conference_link: https://colmweb.org/index.html
 syscolor: "#555555"
 sysfont: Inter
 paper: https://arxiv.org/abs/XXXX.YYYYY
