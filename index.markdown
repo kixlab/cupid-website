@@ -15,6 +15,9 @@ layout: default
 <div markdown="1">
 <span class="sys-name">Cupid</span> contains **756 human-curated interaction session histories** between simulated users and LLM-based AI assistants, available on **[<img src="/assets/img/hf-logo.svg" height="20px" width="20px"/> HuggingFace](https://huggingface.co/datasets/kixlab/CUPID)**.
 
+We also release a larger, unverified version of our dataset <span class="sys-name">Cupid</span><span style="font-weight:bold;color:#555555">-Unverified</span> on **[<img src="/assets/img/hf-logo.svg" height="20px" width="20px"/> HuggingFace](https://huggingface.co/datasets/kixlab/CUPID-Unverified)**.
+
+
 ### Key Features
 
 - **Contextual Preferences**: Tests models' ability to infer preferences that change based on context

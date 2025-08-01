@@ -29,6 +29,8 @@ sysfont: Inter
 paper: https://arxiv.org/abs/XXXX.YYYYY
 code: https://github.com/kixlab/CUPID
 dataset: https://huggingface.co/datasets/kixlab/CUPID
+dataset_unverified: https://huggingface.co/datasets/kixlab/CUPID-Unverified
+
 
 plugins:
   - jekyll-feed
