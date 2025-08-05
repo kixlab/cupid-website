@@ -26,7 +26,7 @@ conference: "COLM 2025"
 conference_link: https://colmweb.org/index.html
 syscolor: "#555555"
 sysfont: Inter
-paper: https://arxiv.org/abs/XXXX.YYYYY
+paper: https://arxiv.org/abs/2508.01674
 code: https://github.com/kixlab/CUPID
 dataset: https://huggingface.co/datasets/kixlab/CUPID
 dataset_unverified: https://huggingface.co/datasets/kixlab/CUPID-Unverified

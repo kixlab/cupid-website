@@ -54,7 +54,7 @@ Evaluation scripts are available in our **[<svg xmlns="http://www.w3.org/2000/sv
 @article{kim2025cupid,
   title     = {CUPID: Evaluating Personalized and Contextualized Alignment of LLMs from Interactions},
   author    = {Kim, Tae Soo and Lee, Yoonjoo and Park, Yoonah and Kim, Jiho and Kim, Young-Ho and Kim, Juho},
-  journal   = {arXiv preprint arXiv:XXXX.YYYYY},
+  journal   = {arXiv preprint arXiv:2508.01674},
   year      = {2025}
 }
 </pre>
