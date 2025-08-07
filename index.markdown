@@ -69,4 +69,4 @@ Evaluation scripts are available in our **[<svg xmlns="http://www.w3.org/2000/sv
 [![Logo of NAVER](/assets/img/naver_logo.png)](https://www.facebook.com/NAVERAILAB)
 
 {: .center .acknowledgement}
-This research was supported by the **KAIST-NAVER Hypercreative AI Center**.
+This research was supported by the **KAIST-NAVER Hypercreative AI Center** and by **Institute of Information & communications Technology Planning & Evaluation (IITP) grant funded by the Korea government(MSIT) (No. RS-2024-00443251, Accurate and Safe Multimodal, Multilingual Personalized AI Tutors)**.
