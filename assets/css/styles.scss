@@ -201,7 +201,7 @@ pre {
   color: #fff;
   fill: #fff;
   font-size: 14px;
-  width: 160px;
+  width: 100px;
   cursor: pointer;
 
   &:visited {
@@ -234,7 +234,7 @@ ul {
   color: #fff;
   fill: #fff;
   font-size: 16px;
-  width: 120px;
+  width: 100px;
   cursor: default;
 
   &:visited {
@@ -253,6 +253,14 @@ ul {
 .sys-name {
   font-weight: bold;
   color: {{site.syscolor}};
+  display: inline-block;
+  font-size: 20px;
+  font-variant-caps: small-caps;
+  line-height: 1.0;
+}
+
+.sys-name::first-letter {
+  font-size: 18px;
 }
 
 strong {
